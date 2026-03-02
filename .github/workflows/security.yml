@@ -26,4 +26,7 @@ jobs:
 
     - name: Run SupplyGuard Scanner
       run: |
-        python supplyguard.py .
+        python supplyguard.py 
+
+    env:
+        NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
