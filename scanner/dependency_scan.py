@@ -8,6 +8,8 @@ from scanner.node_dependency_scan import scan_node_dependencies
 from scanner.java_dependency_scan import scan_java_dependencies
 from scanner.docker_scan import scan_dockerfile
 from scanner.iac_scan import scan_yaml_iac, scan_docker_compose, scan_terraform
+from scanner.nvd_api import fetch_nvd_vulnerabilities
+
 
 # ----------------------------------------
 # Utility
@@ -62,7 +64,6 @@ def flatten_dependencies(tree):
         if not name:
             return
 
-        # Store dependency info
         if name not in flat:
             flat[name] = {
                 "name": name,
@@ -71,7 +72,6 @@ def flatten_dependencies(tree):
                 "dependencies": []
             }
 
-        # Store parent-child relationship
         if parent:
             if parent not in relations:
                 relations[parent] = []
@@ -83,7 +83,6 @@ def flatten_dependencies(tree):
     for pkg in tree:
         recurse(pkg)
 
-    # Attach child dependencies
     for parent, children in relations.items():
         if parent in flat:
             flat[parent]["dependencies"] = list(set(children))
@@ -120,7 +119,6 @@ def scan_dependencies(project_path):
 
     all_flat_dependencies = []
 
-    # Initialize infra findings (IMPORTANT)
     docker_findings = []
     yaml_findings = []
     compose_findings = []
@@ -167,40 +165,37 @@ def scan_dependencies(project_path):
         all_flat_dependencies.extend(java_deps)
 
     # ---------------------------------------
-    # Dockerfile ecosystem
+    # Infra scanning
     # ---------------------------------------
     if "docker" in ecosystems:
         docker_findings = scan_dockerfile(project_path)
 
-    # ---------------------------------------
-    # YAML + Docker Compose ecosystem
-    # ---------------------------------------
     if "yaml" in ecosystems:
         yaml_findings = scan_yaml_iac(project_path)
         compose_findings = scan_docker_compose(project_path)
-     
-    # ---------------------------------------
-    # Terraform ecosystem
-    # ---------------------------------------
-    terraform_findings = []
 
+    terraform_findings = []
     if "terraform" in ecosystems:
         terraform_findings = scan_terraform(project_path)
 
-    # ---------------------------------------
-    # If no dependencies found
-    # ---------------------------------------
     if not all_flat_dependencies:
         print("[!] No supported dependency ecosystem detected")
         return [], docker_findings, yaml_findings, compose_findings, terraform_findings
 
     # ---------------------------------------
-    # NVD Matching
+    # NVD Matching (Hybrid Mode)
     # ---------------------------------------
 
-    print("[*] Indexing NVD dataset into memory cache...")
-    nvd_index = get_indexed_vulnerabilities()
-    print(f"[+] Indexed {len(nvd_index)} products into memory cache\n")
+    USE_LOCAL_DATASET = os.path.exists("dataset")
+
+    if USE_LOCAL_DATASET:
+        print("[*] Using local NVD dataset")
+        print("[*] Indexing NVD dataset into memory cache...")
+        nvd_index = get_indexed_vulnerabilities()
+        print(f"[+] Indexed {len(nvd_index)} products into memory cache\n")
+    else:
+        print("[*] Using NVD API (CI mode)")
+        nvd_index = None
 
     results = []
 
@@ -212,16 +207,26 @@ def scan_dependencies(project_path):
         matched = []
         scores = []
 
-        if name in nvd_index:
-            for vuln in nvd_index[name]:
+        if USE_LOCAL_DATASET:
 
-                if version_matches(
-                        version,
-                        vuln.get("version", "*"),
-                        vuln.get("match_obj", {})):
+            if name in nvd_index:
+                for vuln in nvd_index[name]:
 
-                    matched.append(vuln["cve_id"])
-                    scores.append(vuln["cvss"])
+                    if version_matches(
+                            version,
+                            vuln.get("version", "*"),
+                            vuln.get("match_obj", {})):
+
+                        matched.append(vuln["cve_id"])
+                        scores.append(vuln["cvss"])
+
+        else:
+            # CI Mode - Use NVD API
+            vulns = fetch_nvd_vulnerabilities(name)
+
+            for vuln in vulns:
+                matched.append(vuln["cve_id"])
+                scores.append(vuln["cvss"])
 
         highest = max(scores) if scores else 0
         avg = sum(scores) / len(scores) if scores else 0
@@ -239,7 +244,6 @@ def scan_dependencies(project_path):
             "severity": severity_from_cvss(highest)
         })
 
-    # Remove duplicates
     unique = {}
     for dep in results:
         key = f"{dep['name']}:{dep['version']}"
