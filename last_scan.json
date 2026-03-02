@@ -1,0 +1,199 @@
+{
+    "dependencies": [
+        {
+            "name": "flask",
+            "version": "3.2.0.dev0",
+            "dependency_type": "DIRECT",
+            "depth": 1,
+            "ecosystem": "PYTHON",
+            "cve_count": 7,
+            "avg_cvss": 6.13,
+            "highest_cvss": 7.5,
+            "severity": "HIGH"
+        },
+        {
+            "name": "blinker",
+            "version": "1.9.0",
+            "dependency_type": "TRANSITIVE",
+            "depth": 2,
+            "ecosystem": "PYTHON",
+            "cve_count": 0,
+            "avg_cvss": 0,
+            "highest_cvss": 0,
+            "severity": "NONE"
+        },
+        {
+            "name": "click",
+            "version": "8.3.1",
+            "dependency_type": "TRANSITIVE",
+            "depth": 2,
+            "ecosystem": "PYTHON",
+            "cve_count": 0,
+            "avg_cvss": 0,
+            "highest_cvss": 0,
+            "severity": "NONE"
+        },
+        {
+            "name": "colorama",
+            "version": "0.4.6",
+            "dependency_type": "TRANSITIVE",
+            "depth": 3,
+            "ecosystem": "PYTHON",
+            "cve_count": 0,
+            "avg_cvss": 0,
+            "highest_cvss": 0,
+            "severity": "NONE"
+        },
+        {
+            "name": "itsdangerous",
+            "version": "2.2.0",
+            "dependency_type": "TRANSITIVE",
+            "depth": 2,
+            "ecosystem": "PYTHON",
+            "cve_count": 0,
+            "avg_cvss": 0,
+            "highest_cvss": 0,
+            "severity": "NONE"
+        },
+        {
+            "name": "jinja2",
+            "version": "3.1.6",
+            "dependency_type": "TRANSITIVE",
+            "depth": 2,
+            "ecosystem": "PYTHON",
+            "cve_count": 1,
+            "avg_cvss": 4.4,
+            "highest_cvss": 4.4,
+            "severity": "MEDIUM"
+        },
+        {
+            "name": "markupsafe",
+            "version": "3.0.3",
+            "dependency_type": "TRANSITIVE",
+            "depth": 3,
+            "ecosystem": "PYTHON",
+            "cve_count": 0,
+            "avg_cvss": 0,
+            "highest_cvss": 0,
+            "severity": "NONE"
+        },
+        {
+            "name": "werkzeug",
+            "version": "3.1.6",
+            "dependency_type": "TRANSITIVE",
+            "depth": 2,
+            "ecosystem": "PYTHON",
+            "cve_count": 13,
+            "avg_cvss": 6.62,
+            "highest_cvss": 9.8,
+            "severity": "CRITICAL"
+        },
+        {
+            "name": "pipdeptree",
+            "version": "2.31.0",
+            "dependency_type": "DIRECT",
+            "depth": 1,
+            "ecosystem": "PYTHON",
+            "cve_count": 0,
+            "avg_cvss": 0,
+            "highest_cvss": 0,
+            "severity": "NONE"
+        },
+        {
+            "name": "packaging",
+            "version": "26.0",
+            "dependency_type": "TRANSITIVE",
+            "depth": 2,
+            "ecosystem": "PYTHON",
+            "cve_count": 0,
+            "avg_cvss": 0,
+            "highest_cvss": 0,
+            "severity": "NONE"
+        },
+        {
+            "name": "pip",
+            "version": "26.0.1",
+            "dependency_type": "TRANSITIVE",
+            "depth": 2,
+            "ecosystem": "PYTHON",
+            "cve_count": 8,
+            "avg_cvss": 5.42,
+            "highest_cvss": 7.8,
+            "severity": "HIGH"
+        }
+    ],
+    "secrets": [
+        {
+            "type": "Password Assignment",
+            "file": "C:\\Users\\eswar\\AppData\\Local\\Temp\\supplyguard_repo_deug2nsx\\docs\\tutorial\\tests.rst"
+        },
+        {
+            "type": "Password Assignment",
+            "file": "C:\\Users\\eswar\\AppData\\Local\\Temp\\supplyguard_repo_deug2nsx\\examples\\tutorial\\tests\\conftest.py"
+        }
+    ],
+    "cloud_findings": [],
+    "risk": {
+        "project_score": 100,
+        "risk_level": "CRITICAL",
+        "total_dependencies": 11,
+        "build_allowed": false,
+        "centrality": {
+            "flask": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            },
+            "blinker": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            },
+            "click": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            },
+            "colorama": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            },
+            "itsdangerous": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            },
+            "jinja2": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            },
+            "markupsafe": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            },
+            "werkzeug": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            },
+            "pipdeptree": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            },
+            "packaging": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            },
+            "pip": {
+                "degree": 0.091,
+                "betweenness": 0.0,
+                "combined": 0.064
+            }
+        }
+    }
+}

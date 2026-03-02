@@ -1,0 +1,11 @@
+{
+  "block_cvss": 8.5,
+  "block_cve_count": 3,
+  "block_severity": ["CRITICAL", "HIGH"],
+  "enable_secret_scan": true,
+  "enable_iac_scan": true,
+  "enable_docker_scan": true,
+  "enable_node_scan": true,
+  "enable_java_scan": true,
+  "block_on_secrets": true
+}

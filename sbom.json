@@ -1,0 +1,326 @@
+{
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:supplyguard-sbom",
+    "version": 2,
+    "metadata": {
+        "timestamp": "2026-03-02T07:39:21.211613Z",
+        "tools": [
+            {
+                "vendor": "SupplyGuard",
+                "name": "SupplyGuard Dependency Scanner",
+                "version": "3.0"
+            }
+        ]
+    },
+    "components": [
+        {
+            "type": "library",
+            "name": "flask",
+            "version": "3.2.0.dev0",
+            "scope": "required",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "DIRECT"
+                },
+                {
+                    "name": "depth",
+                    "value": "1"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "7"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "7.5"
+                },
+                {
+                    "name": "severity",
+                    "value": "HIGH"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "blinker",
+            "version": "1.9.0",
+            "scope": "optional",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "TRANSITIVE"
+                },
+                {
+                    "name": "depth",
+                    "value": "2"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "0"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "0"
+                },
+                {
+                    "name": "severity",
+                    "value": "NONE"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "click",
+            "version": "8.3.1",
+            "scope": "optional",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "TRANSITIVE"
+                },
+                {
+                    "name": "depth",
+                    "value": "2"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "0"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "0"
+                },
+                {
+                    "name": "severity",
+                    "value": "NONE"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "colorama",
+            "version": "0.4.6",
+            "scope": "optional",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "TRANSITIVE"
+                },
+                {
+                    "name": "depth",
+                    "value": "3"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "0"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "0"
+                },
+                {
+                    "name": "severity",
+                    "value": "NONE"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "itsdangerous",
+            "version": "2.2.0",
+            "scope": "optional",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "TRANSITIVE"
+                },
+                {
+                    "name": "depth",
+                    "value": "2"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "0"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "0"
+                },
+                {
+                    "name": "severity",
+                    "value": "NONE"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "jinja2",
+            "version": "3.1.6",
+            "scope": "optional",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "TRANSITIVE"
+                },
+                {
+                    "name": "depth",
+                    "value": "2"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "1"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "4.4"
+                },
+                {
+                    "name": "severity",
+                    "value": "MEDIUM"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "markupsafe",
+            "version": "3.0.3",
+            "scope": "optional",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "TRANSITIVE"
+                },
+                {
+                    "name": "depth",
+                    "value": "3"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "0"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "0"
+                },
+                {
+                    "name": "severity",
+                    "value": "NONE"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "werkzeug",
+            "version": "3.1.6",
+            "scope": "optional",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "TRANSITIVE"
+                },
+                {
+                    "name": "depth",
+                    "value": "2"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "13"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "9.8"
+                },
+                {
+                    "name": "severity",
+                    "value": "CRITICAL"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "pipdeptree",
+            "version": "2.31.0",
+            "scope": "required",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "DIRECT"
+                },
+                {
+                    "name": "depth",
+                    "value": "1"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "0"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "0"
+                },
+                {
+                    "name": "severity",
+                    "value": "NONE"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "packaging",
+            "version": "26.0",
+            "scope": "optional",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "TRANSITIVE"
+                },
+                {
+                    "name": "depth",
+                    "value": "2"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "0"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "0"
+                },
+                {
+                    "name": "severity",
+                    "value": "NONE"
+                }
+            ]
+        },
+        {
+            "type": "library",
+            "name": "pip",
+            "version": "26.0.1",
+            "scope": "optional",
+            "properties": [
+                {
+                    "name": "dependency_type",
+                    "value": "TRANSITIVE"
+                },
+                {
+                    "name": "depth",
+                    "value": "2"
+                },
+                {
+                    "name": "cve_count",
+                    "value": "8"
+                },
+                {
+                    "name": "highest_cvss",
+                    "value": "7.8"
+                },
+                {
+                    "name": "severity",
+                    "value": "HIGH"
+                }
+            ]
+        }
+    ]
+}
