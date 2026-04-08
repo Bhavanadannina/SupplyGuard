@@ -28,7 +28,7 @@ jobs:
       run: |
         git clone https://github.com/tiangolo/fastapi.git
         cd fastapi
-        python ../supplyguard.py .
+        python ../supplyguard.py . --policy ../policy.json
 
     env:
         NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
